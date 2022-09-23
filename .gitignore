@@ -1,0 +1,5 @@
+model_zoo/
+data/
+results/
+
+__pycache__/

@@ -1,0 +1,40 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": false
+        },
+        {
+            "name": "Python: Test",
+            "type": "python",
+            "request": "launch",
+            "program": "test.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "args": [
+                "--weights",
+                "./model_zoo/model_GoPro.pth",
+                "--input_dir",
+                "./data/CBSD68/blur_pair_traj_psf_box",
+                "--save_result",
+                "true",
+                "--output_dir",
+                "./results/tmp",
+                "--win_size",
+                "256",
+                "--num_res",
+                "8",
+                "--gpus",
+                "0"
+            ]
+        }
+    ]
+}

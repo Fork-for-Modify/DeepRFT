@@ -43,14 +43,18 @@ cd pytorch-gradual-warmup-lr; python setup.py install; cd ..
 
 To test the pre-trained models of Deblur and Defocus [Google Drive](https://drive.google.com/file/d/1FoQZrbcYPGzU9xzOPI1Q1NybNUGR-ZUg/view?usp=sharing) or [百度网盘](https://pan.baidu.com/s/10DuQZiXC-Dc6jtLc9YJGbg)(提取码:phws) on your own images, run 
 ```
-python test.py --weights ckpt_path_here --input_dir path_to_images --result_dir save_images_here --win_size 256 --num_res 8 [4:small, 20:plus]# deblur
-python test.py --weights ckpt_path_here --input_dir path_to_images --result_dir save_images_here --win_size 512 --num_res 8 # defocus
+python test.py --weights ckpt_path_here --input_dir path_to_images --output_dir save_images_here --win_size 256 --num_res 8 [4:small, 20:plus] --gpus 0  --save_result True  # deblur
+python test.py --weights ckpt_path_here --input_dir path_to_images --output_dir save_images_here --win_size 512 --num_res 8 # defocus
 ```
+e.g. for DeepRFT
+`python test.py --weights ./model_zoo/model_GoPro.pth --input_dir ./data/CBSD68/blur_pair_traj_psf_box --output_dir ./results/tmp2 --win_size 256 --num_res 8 --gpus 0  --save_result True`
+
 Here is an example to train:
 ```
 python train.py
 ```
-
+e.g. for DeepRFT
+`python train.py --train_dir ./Datasets/GoPro/train --val_dir ./Datasets/GoPro/val --model_save_dir ./results/train --mode Deblurring --patch_size 256 --batch_size 16`
 
 ## Results
 Experiment for image deblurring.
